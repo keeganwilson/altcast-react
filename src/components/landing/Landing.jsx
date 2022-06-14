@@ -9,10 +9,10 @@ import Pricing from "./Pricing";
 import Download from "./Download";
 import Footer from "../Footer";
 
-const Landing = ({ setToken }) => {
+const Landing = ({ Login, error }) => {
   return (
     <div>
-      <Navbar setToken={setToken} />
+      <Navbar Login={Login} error={error} />
       <Title />
       <Features />
       <Association />

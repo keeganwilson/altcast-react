@@ -21,13 +21,13 @@ module.exports = {
   },
 
   addCast: (req, res) => {
-    const { gameId, caster, creds, notes, streamURL } = req.body;
+    const { gameId, userId, creds, notes, streamURL } = req.body;
 
     sequelize
       .query(
         `
         INSERT INTO casts (gameId, caster, creds, notes, streamURL)
-        VALUES (${gameId} ${caster}, ${creds}, ${notes}, ${streamURL})`
+        VALUES (${gameId} ${userId}, ${creds}, ${notes}, ${streamURL})`
       )
       .then(() => res.sendStatus(200))
       .catch((err) => console.log(err));

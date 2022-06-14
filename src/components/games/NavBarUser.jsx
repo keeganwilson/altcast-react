@@ -1,6 +1,6 @@
 import React from "react";
 
-const NavbarUser = () => {
+const NavbarUser = ({ Logout }) => {
   return (
     <section className="navbar">
       <div className="container-fluid">
@@ -44,11 +44,9 @@ const NavbarUser = () => {
               <li>
                 <h3 className="spacer">|</h3>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#Login">
-                  Logout
-                </a>
-              </li>
+              <button className="logout-btn" onClick={Logout}>
+                Logout
+              </button>
             </ul>
           </div>
         </nav>

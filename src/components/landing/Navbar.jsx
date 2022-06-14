@@ -5,12 +5,12 @@ import logo from "../../media/pics/logo.png";
 import LoginModal from "./LoginModal";
 import CreateAccountModal from "./CreateAccountModal";
 
-const Navbar = ({ setToken }) => {
+const Navbar = ({ Login, error }) => {
   return (
     <section className="navbar">
       <div className="container-fluid">
         <nav className="navbar navbar-expand-lg navbar-dark">
-          <a className="navbar-brand" href="#Landing">
+          <a className="navbar-brand" href="/">
             <img className="navbar-logo" src={logo} alt="Altcast Logo" />
           </a>
 
@@ -58,8 +58,8 @@ const Navbar = ({ setToken }) => {
                     </Route>
                     <Route
                       className="nav-link"
-                      path="/"
-                      element={<LoginModal setToken={setToken} />}
+                      path="/login"
+                      element={<LoginModal Login={Login} error={error} />}
                     >
                       Login
                     </Route>

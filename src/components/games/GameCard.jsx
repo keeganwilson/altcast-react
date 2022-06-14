@@ -13,14 +13,25 @@ const GameCard = ({ game }) => {
   const date = new Date(startTime).toLocaleDateString();
   const { isShowing, toggle } = useModal();
 
-  console.log(time);
+  const formatTime = (time) => {
+    var resultArray = time.split(":");
+    var result =
+      time.replace(":" + resultArray[2], " ") + resultArray[2].split(" ")[1];
+    return result;
+  };
 
   return (
     <section className="gameContainer">
-      <h3 className="teams">{awayTeam}</h3>
+      <div className="team-container">
+        <img src="" alt="Away Team Logo" />
+        <h3 className="team-name">{awayTeam}</h3>
+      </div>
       <h3>@</h3>
-      <h3 className="teams">{homeTeam}</h3>
-      <h4 className="startTime">{time}</h4>
+      <div className="team-container">
+        <img src="" alt="Home Team Logo" />
+        <h3 className="team-name">{homeTeam}</h3>
+      </div>
+      <h4 className="startTime">{formatTime(time)}</h4>
       <h4 className="gameDate">{date}</h4>
       <button className="btn btn-lg-dark" onClick={toggle}>
         View Casts

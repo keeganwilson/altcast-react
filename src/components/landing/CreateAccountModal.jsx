@@ -6,10 +6,6 @@ const CreateAccountModal = ({ setToken }) => {
     <>
       <form className="form form-signup" id="signup-form">
         <fieldset>
-          <legend>
-            Please, enter your email, password and password confirmation for
-            sign up.
-          </legend>
           <div className="input-block">
             <label for="signup-first-name">First Name</label>
             <input
@@ -57,7 +53,7 @@ const CreateAccountModal = ({ setToken }) => {
           </div>
         </fieldset>
         <button type="submit" className="btn-signup">
-          Continue
+          Sign Up!
         </button>
       </form>
     </>

@@ -16,7 +16,7 @@ const endpoints = {
   nhl: "icehockey_nhl/scores",
 };
 
-const GetGames = () => {
+const GetGames = ({ Logout }) => {
   const [mlb, setMlb] = useState([]);
   const [nfl, setNfl] = useState([]);
   const [nba, setNba] = useState([]);
@@ -76,11 +76,9 @@ const GetGames = () => {
       });
   }, []);
 
-  console.log(mlb);
-
   return (
     <>
-      <NavbarUser />
+      <NavbarUser Logout={Logout} />
       <section className="games">
         <Games league="MLB" games={mlb} />
         <Games league="NFL" games={nfl} />
