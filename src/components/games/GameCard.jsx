@@ -41,7 +41,7 @@ const GameCard = ({ game }) => {
         awayTeam={awayTeam}
         homeTeam={homeTeam}
         isShowing={isShowing}
-        hide={toggle}
+        toggle={toggle}
       />
       <button className="btn btn-lg-dark" onClick={toggle}>
         Cast
@@ -51,7 +51,7 @@ const GameCard = ({ game }) => {
         awayTeam={awayTeam}
         homeTeam={homeTeam}
         isShowing={isShowing}
-        hide={toggle}
+        toggle={toggle}
       />
     </section>
   );

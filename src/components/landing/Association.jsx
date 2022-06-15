@@ -12,7 +12,6 @@ const Association = () => {
       <img className="league-logo" src={nfl} alt="NFL-logo" />
       <img className="nba-league-logo" src={nba} alt="NBA-logo" />
       <img className="league-logo" src={nhl} alt="NHL-logo" />
-      <img className="league-logo" src={mls} alt="MLS-logo" />
     </section>
   );
 };

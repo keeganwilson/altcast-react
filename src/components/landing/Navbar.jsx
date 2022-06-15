@@ -1,11 +1,14 @@
 // @ts-nocheck
 import React from "react";
-import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+// import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 import logo from "../../media/pics/logo.png";
 import LoginModal from "./LoginModal";
 import CreateAccountModal from "./CreateAccountModal";
+import useModal from "../../hooks/useModal";
 
 const Navbar = ({ Login, error }) => {
+  const { isShowing, toggle } = useModal();
+
   return (
     <section className="navbar">
       <div className="container-fluid">
@@ -40,7 +43,7 @@ const Navbar = ({ Login, error }) => {
                   Download
                 </a>
               </li>
-              <BrowserRouter>
+              {/* <BrowserRouter>
                 <ul className="navbar-nav">
                   <li className="nav-item">
                     <Link to="/create-account">Create Account</Link>
@@ -64,8 +67,11 @@ const Navbar = ({ Login, error }) => {
                       Login
                     </Route>
                   </Routes>
+                  
                 </ul>
-              </BrowserRouter>
+              </BrowserRouter> */}
+              <button onClick={toggle}>Login</button>
+              <LoginModal isShowing={isShowing} toggle={toggle} />
             </ul>
           </div>
         </nav>

@@ -27,7 +27,8 @@ module.exports = {
         ); 
         
         CREATE TABLE casts (
-            castId serial primary key,
+            cast_id serial primary key,
+            user_id int REFERENCES users(user_id),
             game_id varchar(50),
             creds varchar(1000),
             notes varchar(2000),

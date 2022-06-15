@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const LoginModal = ({ Login, error }) => {
+const LoginModal = ({ isShowing, toggle, Login, error }) => {
   const [details, setDetails] = useState({ username: "", password: "" });
 
   const submitHandler = (e) => {
@@ -8,7 +8,6 @@ const LoginModal = ({ Login, error }) => {
 
     Login(details);
   };
-
   return (
     <form onSubmit={submitHandler}>
       <div className="form-inner">
