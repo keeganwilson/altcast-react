@@ -14,15 +14,20 @@
 ## Requirements to be satisfied
 
 #### Database
+
 - Has at least 2 tables
 - Tables contain data
 - Connects to server
 
+![Alt text](./dbdiagram.png "Data Model")
+
 #### Server
+
 - Handles requests
 - Sends responses
 
 #### Front-End
+
 - Has 3-5 interactive features
 - Communicates with server
 - Has at least 5 components
