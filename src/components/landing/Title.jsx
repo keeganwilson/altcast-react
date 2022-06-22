@@ -1,4 +1,5 @@
 import React from "react";
+import mockup from "../../media/pics/altcast-mockup.png";
 
 const Title = () => {
   return (
@@ -17,7 +18,7 @@ const Title = () => {
           </button>
         </div>
         <div className="col-lg-6">
-          <img className="title-image" src="" alt="AltCast Mockup" />
+          <img className="title-image" src={mockup} alt="AltCast Mockup" />
         </div>
       </div>
     </section>

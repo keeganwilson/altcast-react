@@ -6,7 +6,7 @@ import GetGames from "./components/games/GetGames";
 import axios from "axios";
 
 const App = () => {
-  const [token, setToken] = useState(true);
+  const [token, setToken] = useState(false);
   const [user, setUser] = useState("");
   const [error, setError] = useState("");
 
