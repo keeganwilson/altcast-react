@@ -1,13 +1,21 @@
 // @ts-nocheck
-import React from "react";
+import React, { useState } from "react";
 // import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 import logo from "../../media/pics/logo.png";
 import LoginModal from "./LoginModal";
 import CreateAccountModal from "./CreateAccountModal";
-import useModal from "../../hooks/useModal";
 
-const Navbar = ({ Login, error }) => {
-  const { isShowing, toggle } = useModal();
+const Navbar = ({ login, createAccount, error }) => {
+  const [isLoginShowing, setIsLoginShowing] = useState(false);
+  const [isCreateAccountShowing, setIsCreateAccountShowing] = useState(false);
+
+  const loginToggle = () => {
+    setIsLoginShowing(!isLoginShowing);
+  };
+
+  const createAccountToggle = () => {
+    setIsCreateAccountShowing(!isCreateAccountShowing);
+  };
 
   return (
     <section className="navbar">
@@ -39,39 +47,25 @@ const Navbar = ({ Login, error }) => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#download">
+                <a className="nav-link" href="#cta">
                   Download
                 </a>
               </li>
-              {/* <BrowserRouter>
-                <ul className="navbar-nav">
-                  <li className="nav-item">
-                    <Link to="/create-account">Create Account</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="/login">Login</Link>
-                  </li>
-                  <Routes>
-                    <Route
-                      className="nav-link"
-                      path="/create-account"
-                      element={<CreateAccountModal />}
-                    >
-                      Create Account
-                    </Route>
-                    <Route
-                      className="nav-link"
-                      path="/login"
-                      element={<LoginModal Login={Login} error={error} />}
-                    >
-                      Login
-                    </Route>
-                  </Routes>
-                  
-                </ul>
-              </BrowserRouter> */}
-              <button onClick={toggle}>Login</button>
-              <LoginModal isShowing={isShowing} toggle={toggle} />
+              <button className="create-acct-btn" onClick={createAccountToggle}>
+                Create Account
+              </button>
+              {isCreateAccountShowing && (
+                <CreateAccountModal
+                  createAccount={createAccount}
+                  toggle={createAccountToggle}
+                />
+              )}
+              <button className="login-btn" onClick={loginToggle}>
+                Login
+              </button>
+              {isLoginShowing && (
+                <LoginModal login={login} toggle={loginToggle} error={error} />
+              )}
             </ul>
           </div>
         </nav>

@@ -1,10 +1,11 @@
 import React from "react";
 
-const NavbarUser = ({ Logout }) => {
+const NavbarUser = ({ logout, user }) => {
   return (
-    <section className="navbar">
-      <div className="container-fluid">
-        <nav className="navbar navbar-expand-lg navbar-dark">
+    <section className="">
+      <div className="user-container-fluid">
+        <nav className="justify-content-between navbar navbar-expand-lg navbar-dark">
+          <h4 className="hello-user">Hello, {user}</h4>
           <button
             className="navbar-toggler"
             type="button"
@@ -14,7 +15,10 @@ const NavbarUser = ({ Logout }) => {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div className="collapse navbar-collapse" id="navbarToggler">
+          <div
+            className="justify-content-end collapse navbar-collapse"
+            id="navbarToggler"
+          >
             <ul className="navbar-nav">
               <li className="nav-item">
                 <a className="nav-link" href="#MLB">
@@ -36,15 +40,10 @@ const NavbarUser = ({ Logout }) => {
                   NHL
                 </a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#MLS">
-                  MLS
-                </a>
-              </li>
               <li>
                 <h3 className="spacer">|</h3>
               </li>
-              <button className="logout-btn" onClick={Logout}>
+              <button className="logout-btn" onClick={logout}>
                 Logout
               </button>
             </ul>

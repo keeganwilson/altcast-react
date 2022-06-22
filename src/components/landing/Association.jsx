@@ -1,9 +1,8 @@
 import React from "react";
-import mlb from "../../media/pics/mlb-logo.png";
-import nfl from "../../media/pics/nfl-logo.png";
-import nba from "../../media/pics/nba-logo.png";
-import nhl from "../../media/pics/nhl-logo.png";
-import mls from "../../media/pics/mls-logo.png";
+import mlb from "../../media/pics/mlb/mlb-logo.png";
+import nfl from "../../media/pics/nfl/nfl-logo.png";
+import nba from "../../media/pics/nba/nba-logo.png";
+import nhl from "../../media/pics/nhl/nhl-logo.png";
 
 const Association = () => {
   return (

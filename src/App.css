@@ -32,9 +32,20 @@ h3 {
 /* Landing Page */
 /* Navigation Bar */
 
+.hello-user {
+  margin-left: 50px;
+  width: 400px;
+  display: flex;
+  justify-content: flex-start;
+}
+
 .navbar {
   /* padding-bottom: 1rem; */
   background-color: #7a9e9f;
+  width: 100%;
+}
+
+.navbar-collapse {
   width: 100%;
 }
 
@@ -68,6 +79,42 @@ h3 {
 .nav-user-link {
   font-family: "Montserrat";
   font-weight: 500;
+}
+
+.user-container-fluid {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.modal-body {
+  padding: 15px;
+}
+
+.form-group {
+  margin: 20px;
+}
+
+.input-block {
+  margin: 20px;
+}
+
+label {
+  margin-right: 10px;
+}
+
+.login-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.create-acct-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.login {
+  background-color: white;
 }
 
 /* Download Buttons */
@@ -203,13 +250,24 @@ h3 {
   background-color: #7a9e9f;
 }
 
+.collapse {
+  margin-right: 50px;
+}
+
 .nav-user-item {
   padding: 0 18px;
+}
+
+.logout-btn {
+  background-color: transparent;
+  border: none;
+  margin-left: 10px;
 }
 
 .games {
   color: white;
   background-color: black;
+  text-align: center;
 }
 
 .gamesContainer {
@@ -218,12 +276,72 @@ h3 {
   display: flex;
 }
 
-#portal {
-  height: 500px;
-  width: 500px;
+.cast-btn {
+  background-color: #ef8172;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.listen-btn {
+  background-color: #ef8172;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.modal-fade {
+  height: auto;
+  width: auto;
   position: fixed;
   top: 100px;
-  left: 300px;
+  left: 25%;
+  background-color: #4f6367;
+  color: white;
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+}
+
+#cast-modal {
+  width: 30vw;
+  position: fixed;
+  right: 35vw;
+  left: 35vw;
+}
+
+#login-modal {
+  width: 20vw;
+  position: fixed;
+  right: 40vw;
+  left: 40vw;
+}
+
+#listen-modal {
+  width: 60vw;
+  position: fixed;
+  right: 20vw;
+  left: 20vw;
+}
+
+#create-account-modal {
+  width: 30vw;
+  position: fixed;
+  right: 35vw;
+  left: 35vw;
+}
+
+.close {
+  border-radius: 50%;
+}
+
+.login {
+  background-color: #4f6367;
+}
+
+.gamesContainer {
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .gameContainer {
@@ -243,4 +361,24 @@ h3 {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+}
+
+/* Cast Modal: */
+.teams-container {
+  display: flex;
+}
+
+.cast-container {
+  border: 2px solid black;
+  color: black;
+  background-color: #b8d8d8;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.caster {
+  margin-right: 15px;
 }

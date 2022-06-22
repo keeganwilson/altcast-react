@@ -1,40 +1,45 @@
+// @ts-nocheck
 import React from "react";
 import ReactDOM from "react-dom";
-import GameCasts from "./GameCasts";
+import GetCasts from "./GetCasts";
 
-const ListenModal = ({ awayTeam, homeTeam, isShowing, hide }) =>
-  isShowing
-    ? ReactDOM.createPortal(
-        <React.Fragment>
-          <div className="modal-overlay" />
-          <div
-            className="modal-wrapper"
-            aria-modal
-            aria-hidden
-            tabIndex={-1}
-            role="dialog"
-          >
-            <div className="modal">
-              <div className="modal-header">
-                <button
-                  type="button"
-                  className="modal-close-button"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                  onClick={hide}
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <p>{awayTeam}</p>
-              <p>{homeTeam}</p>
-              <p>Testing</p>
-              <GameCasts />
+const ListenModal = ({ awayTeam, homeTeam, gameId, toggle }) =>
+  ReactDOM.createPortal(
+    <React.Fragment>
+      <div
+        className="modal-fade"
+        id="listen-modal"
+        tabIndex="-1"
+        role="dialog"
+        aria-labelledby="listenModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <button
+                type="button"
+                className="close"
+                data-dismiss="modal"
+                aria-label="Close"
+                onClick={toggle}
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              <section className="teams-container">
+                <h2 className="team-name">{awayTeam}</h2>
+                <h2>@</h2>
+                <h2 className="team-name">{homeTeam}</h2>
+              </section>
+              <GetCasts gameId={gameId} />
             </div>
           </div>
-        </React.Fragment>,
-        document.getElementById("portal")
-      )
-    : null;
+        </div>
+      </div>
+    </React.Fragment>,
+    document.getElementById("portal")
+  );
 
 export default ListenModal;

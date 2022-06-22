@@ -7,40 +7,36 @@ import axios from "axios";
 
 const App = () => {
   const [token, setToken] = useState(true);
-  const [attempt, setAttempt] = useState({});
-  const [user, setUser] = useState({ username: "", email: "" });
+  const [user, setUser] = useState("");
   const [error, setError] = useState("");
 
-  const Login = (details) => {
-    console.log(details);
-
+  const createAccount = (body) => {
     axios
-      .get(`http://localhost:3000/users/?username=${details.username}`)
-      .then(setAttempt({ data: user }))
+      .post("http://localhost:3001/users", body)
+      .then(alert("Your account has been added"))
       .catch((err) => console.log(err));
-
-    if (
-      details.username === attempt.username &&
-      details.password === attempt.passsord
-    ) {
-      setToken(true);
-      setUser({
-        name: user.name,
-        email: user.email,
-      });
-    } else setError("Invalid username or password");
   };
 
-  const Logout = () => {
+  const login = (details) => {
+    axios
+      .get(`http://localhost:3001/users`, { params: details })
+      .then((res) => {
+        setToken(true);
+        setUser(details.username);
+      })
+      .catch((err) => setError("Invalid username or password"));
+  };
+
+  const logout = () => {
     setToken(false);
   };
 
   return (
     <div className="App">
       {token ? (
-        <GetGames Logout={Logout} />
+        <GetGames logout={logout} user={user} />
       ) : (
-        <Landing Login={Login} error={error} />
+        <Landing login={login} createAccount={createAccount} error={error} />
       )}
     </div>
   );

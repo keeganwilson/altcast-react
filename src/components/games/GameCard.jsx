@@ -1,60 +1,76 @@
 // @ts-nocheck
-import React from "react";
-import useModal from "../../hooks/useModal";
+import React, { useState } from "react";
 import ListenModal from "./ListenModal";
 import CastModal from "./CastModal";
 
-const GameCard = ({ game }) => {
+const GameCard = ({ game, user }) => {
   const gameId = game.id;
   const awayTeam = game.away_team;
   const homeTeam = game.home_team;
-  const startTime = game.commence_time;
-  const time = new Date(startTime).toLocaleTimeString();
-  const date = new Date(startTime).toLocaleDateString();
-  const { isShowing, toggle } = useModal();
+  const startTimeFull = game.commence_time;
+  const startTime = new Date(startTimeFull).toLocaleTimeString();
+  const startDate = new Date(startTimeFull).toLocaleDateString();
+  const isCompleted = game.completed;
 
-  const formatTime = (time) => {
-    var resultArray = time.split(":");
+  const [isListenShowing, setIsListenShowing] = useState(false);
+  const [isCastShowing, setIsCastShowing] = useState(false);
+
+  const listenToggle = () => {
+    setIsListenShowing(!isListenShowing);
+  };
+
+  const castToggle = () => {
+    setIsCastShowing(!isCastShowing);
+  };
+
+  const formatTime = (startTime) => {
+    var resultArray = startTime.split(":");
     var result =
-      time.replace(":" + resultArray[2], " ") + resultArray[2].split(" ")[1];
+      startTime.replace(":" + resultArray[2], " ") +
+      resultArray[2].split(" ")[1];
     return result;
   };
 
-  return (
-    <section className="gameContainer">
-      <div className="team-container">
-        <img src="" alt="Away Team Logo" />
-        <h3 className="team-name">{awayTeam}</h3>
-      </div>
-      <h3>@</h3>
-      <div className="team-container">
-        <img src="" alt="Home Team Logo" />
-        <h3 className="team-name">{homeTeam}</h3>
-      </div>
-      <h4 className="startTime">{formatTime(time)}</h4>
-      <h4 className="gameDate">{date}</h4>
-      <button className="btn btn-lg-dark" onClick={toggle}>
-        View Casts
-      </button>
-      <ListenModal
-        gameId={gameId}
-        awayTeam={awayTeam}
-        homeTeam={homeTeam}
-        isShowing={isShowing}
-        toggle={toggle}
-      />
-      <button className="btn btn-lg-dark" onClick={toggle}>
-        Cast
-      </button>
-      <CastModal
-        gameId={gameId}
-        awayTeam={awayTeam}
-        homeTeam={homeTeam}
-        isShowing={isShowing}
-        toggle={toggle}
-      />
-    </section>
-  );
+  if (!isCompleted) {
+    return (
+      <section className="gameContainer">
+        <div className="team-container">
+          <h3 className="team-name">{awayTeam}</h3>
+        </div>
+        <h3>@</h3>
+        <div className="team-container">
+          <h3 className="team-name">{homeTeam}</h3>
+        </div>
+
+        <h4 className="startTime">{formatTime(startTime)}</h4>
+        <h4 className="gameDate">{startDate}</h4>
+        <button className="listen-btn btn-lg-dark" onClick={listenToggle}>
+          View Casts
+        </button>
+        {isListenShowing && (
+          <ListenModal
+            gameId={gameId}
+            awayTeam={awayTeam}
+            homeTeam={homeTeam}
+            toggle={listenToggle}
+          />
+        )}
+
+        <button className="cast-btn btn-lg-dark" onClick={castToggle}>
+          Cast
+        </button>
+        {isCastShowing && (
+          <CastModal
+            gameId={gameId}
+            awayTeam={awayTeam}
+            homeTeam={homeTeam}
+            toggle={castToggle}
+            user={user}
+          />
+        )}
+      </section>
+    );
+  }
 };
 
 export default GameCard;

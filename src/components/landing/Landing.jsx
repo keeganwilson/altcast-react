@@ -9,10 +9,10 @@ import Pricing from "./Pricing";
 import Download from "./Download";
 import Footer from "../Footer";
 
-const Landing = ({ Login, error }) => {
+const Landing = ({ login, createAccount, error }) => {
   return (
     <div>
-      <Navbar Login={Login} error={error} />
+      <Navbar login={login} createAccount={createAccount} error={error} />
       <Title />
       <Features />
       <Association />
