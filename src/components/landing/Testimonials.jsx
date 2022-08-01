@@ -21,9 +21,9 @@ const Testimonials = () => {
           </div>
           <div className="carousel-item">
             <h2 className="testimonial-text">
-              My girlfriend loves soccer and I have no idea what's going on.
-              Thanks to Jeff casting MLS games and explaining the rules and
-              strategy I can now enjoy watching matches with my girlfriend.
+              My girlfriend loves hockey and I have no idea what's going on.
+              Thanks to Jeff casting NHL games and explaining the rules and
+              strategy I can now enjoy watching games with my girlfriend.
             </h2>
             <img className="testimonial-image" src={bro} alt="user" />
             <em>Brock - Tampa Bay, Florida</em>

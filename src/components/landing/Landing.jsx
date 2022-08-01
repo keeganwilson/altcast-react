@@ -18,7 +18,7 @@ const Landing = ({ login, createAccount, error }) => {
       <Association />
       <Testimonials />
       <Pricing />
-      <Download />
+      <Download login={login} createAccount={createAccount} error={error}/>
       <Footer />
     </div>
   );

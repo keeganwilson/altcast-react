@@ -125,7 +125,8 @@ label {
 /* Title Image */
 .title-image {
   width: 28%;
-  transform: rotate(15deg);
+  /* display: flex; */
+
   position: absolute;
   right: 15%;
   top: 42%;
@@ -147,6 +148,7 @@ label {
     position: static;
     position: absolute;
     right: 25%;
+    opacity: 0;
   }
 }
 
@@ -319,6 +321,14 @@ label {
   left: 40vw;
 }
 
+.btn-login {
+  background-color: #ef8172;
+}
+
+.close {
+  background-color: #ef8172;
+}
+
 #listen-modal {
   width: 60vw;
   position: fixed;
@@ -327,10 +337,10 @@ label {
 }
 
 #create-account-modal {
-  width: 30vw;
+  width: 26vw;
   position: fixed;
-  right: 35vw;
-  left: 35vw;
+  right: 37vw;
+  left: 37vw;
 }
 
 .close {

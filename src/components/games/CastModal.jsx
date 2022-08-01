@@ -64,11 +64,11 @@ const CastModal = ({ gameId, awayTeam, homeTeam, toggle, user }) => {
               <h2 className="team-name">{awayTeam}</h2>
               <h2>@</h2>
               <h2 className="team-name">{homeTeam}</h2>
-              <h3>Casting as: {user.username}</h3>
+              <h3>Casting as: {user}</h3>
               <form className="login-form">
                 <div className="form-inner">
                   <div className="form-group">
-                    <label htmlFor="creds">Credentials: </label>
+                    <label htmlFor="creds">Vibe: </label>
                     <input
                       type="text"
                       name="creds"

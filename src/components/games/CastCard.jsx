@@ -11,7 +11,7 @@ const CastCard = ({ cast }) => {
     <section className="cast-container">
       <section className="caster-container">
         <h5 className="caster">Caster: {cast.caster}</h5>
-        <h5 className="creds">Credentials: {cast.creds}</h5>
+        <h5 className="creds">Vibe: {cast.creds}</h5>
         <h5 className="notes">Notes: {cast.notes}</h5>
       </section>
       {!listening && (
