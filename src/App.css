@@ -125,8 +125,6 @@ label {
 /* Title Image */
 .title-image {
   width: 28%;
-  /* display: flex; */
-
   position: absolute;
   right: 15%;
   top: 42%;
@@ -144,10 +142,9 @@ label {
 
   .title-image {
     width: 20%;
-    transform: rotate(0);
-    position: static;
     position: absolute;
     right: 25%;
+    opacity: 0;
     opacity: 0;
   }
 }
