@@ -18,13 +18,17 @@ const App = () => {
   };
 
   const login = (details) => {
-    axios
-      .get(`http://localhost:3001/users`, { params: details })
-      .then((res) => {
-        setToken(true);
-        setUser(details.username);
-      })
-      .catch((err) => setError("Invalid username or password"));
+    if (details.username === "guest" && details.password === "password") {
+      setToken(true);
+      setUser(details.username);
+    } else setError("Invalid username or password");
+    // axios
+    //   .get(`http://localhost:3001/users`, { params: details })
+    //   .then((res) => {
+    //     setToken(true);
+    //     setUser(details.username);
+    //   })
+    //     .catch((err) => setError("Invalid username or password"));
   };
 
   const logout = () => {

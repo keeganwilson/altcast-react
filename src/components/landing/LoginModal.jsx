@@ -5,6 +5,8 @@ import ReactDOM from "react-dom";
 const LoginModal = ({ toggle, login, error }) => {
   const [details, setDetails] = useState({ username: "", password: "" });
 
+  console.log(details);
+
   const submitHandler = (e) => {
     e.preventDefault();
     login(details);
